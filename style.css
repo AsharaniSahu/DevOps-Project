@@ -1,0 +1,148 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.9), rgba(34, 34, 34, 1)); /* Dark background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+    overflow: hidden;
+}
+
+.quiz-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(236, 230, 230, 0.8);
+    border-color: #fff;
+}
+
+.quiz-card, .result-card {
+    background: rgba(0, 0, 0, 0.8); /* Darker for Netflix feel */
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.9);
+}
+
+h1 {
+    margin: 10px 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #22e91b; /* Netflix Red */
+}
+
+#question {
+    font-size: 20px;
+    margin: 20px 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    animation: slideIn 0.4s ease;
+}
+
+#answers button {
+    width: 100%;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: 2px solid white;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1); /* Subtle background for buttons */
+    transition: transform 0.2s, background-color 0.2s;
+    color: white;
+}
+
+#answers button:hover {
+    transform: scale(1.05);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+#answers button:active {
+    transform: scale(0.98);
+}
+
+.correct {
+    background: #22e91b !important; /* Netflix Red for correct answers */
+    color: white;
+    animation: pop 0.3s ease;
+}
+
+.wrong {
+    background: #962222 !important; /* Darker red for wrong answers */
+    color: white;
+    animation: shake 0.3s;
+}
+
+#next-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    background: #22e91b; /* Red for 'Next' button */
+    color: white;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+#next-btn:hover {
+    background: #22e91b;
+}
+
+.progress {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 0%;
+    background: #cc71df; /* Red progress bar */
+    transition: width 0.4s ease;
+}
+
+.hidden {
+    display: none;
+}
+
+.fade {
+    animation: fadeIn 0.4s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.8); }
+    100% { transform: scale(1); }
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
